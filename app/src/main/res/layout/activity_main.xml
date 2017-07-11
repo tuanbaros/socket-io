@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+        <variable
+            name="activity"
+            type="com.simple.demotest.MainActivity"
+            />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.simple.demotest.MainActivity"
+        >
+
+        <LinearLayout
+            android:id="@+id/linear_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical"
+            >
+
+            <EditText
+                android:id="@+id/edit_text_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+            <Button
+                android:id="@+id/button_register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:onClick="@{() -> activity.sendUsername(editTextName.getText().toString())}"
+                android:text="@string/register"
+                />
+
+            <Button
+                android:id="@+id/button_send"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:onClick="@{() -> activity.sendMessage(editTextName.getText().toString())}"
+                android:text="@string/send"
+                android:visibility="gone"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/linear_register"
+            >
+
+            <ListView
+                android:id="@+id/list_view_user"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2.9"
+                />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:background="@color/colorAccent"/>
+
+            <ListView
+                android:id="@+id/list_view_chat"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="7"
+                />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>
